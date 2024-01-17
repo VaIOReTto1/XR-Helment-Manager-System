@@ -27,7 +27,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.flow
 import java.util.Comparator
 
-@OptIn( ExperimentalTextApi::class)
+@OptIn(ExperimentalTextApi::class)
 @Composable
 fun LineChart(payload: List<List<LineData>>, modifier: Modifier) {
     var mSize by remember { mutableStateOf(Size(0f, 0f)) }

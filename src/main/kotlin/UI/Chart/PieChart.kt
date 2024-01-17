@@ -26,7 +26,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.flow
-import screenWidth
 import kotlin.math.cos
 import kotlin.math.sin
 
@@ -53,7 +52,7 @@ fun PieChart(payload: List<List<PieData>>) {
         items(payload) {
             Pie(
                 it,
-                modifier = Modifier.size(screenWidth / 2),
+                modifier = Modifier.size(600.dp / 2),
                 chartTye = if (it.size == 6) ChartType.Full else ChartType.Full,
                 gap = 60f,
                 desDirection = DescriptionDirection.CIRCLE
