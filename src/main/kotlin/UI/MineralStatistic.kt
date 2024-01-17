@@ -18,7 +18,7 @@ fun MineralStatistics() {
 
         Box(modifier = Modifier.height(100.dp))
 
-
+        LineChartDemo()
     }
 }
 

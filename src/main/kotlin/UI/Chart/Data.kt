@@ -6,3 +6,8 @@ data class LineData(
     val groupName:String = ""
 )
 
+data class PieData(
+    val name:String,
+    val amount:Float,
+    val color:Long,
+)
