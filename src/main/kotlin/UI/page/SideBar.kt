@@ -3,10 +3,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.KeyboardArrowDown
-import androidx.compose.material.icons.filled.KeyboardArrowUp
-import androidx.compose.material.icons.filled.Person
-import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.filled.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -38,28 +35,36 @@ fun MainContent() {
                 Text(if (isDrawerOpen) "关闭侧边栏" else "打开侧边栏")
             }
             // 其他主内容组件
-           MineralStatistics()
+            MineralStatistics()
         }
     }
 }
 
 @Composable
 fun SideBar(setDrawerOpen: (Boolean) -> Unit) {
-    Column(
-        modifier = Modifier
-            .width(250.dp)
-            .fillMaxHeight()
-            .background(Color.Gray)
-            .padding(16.dp),
-        verticalArrangement = Arrangement.spacedBy(12.dp)
-    ) {
-        Button(onClick = { setDrawerOpen(false) }) {
-            Text("关闭")
+    // 使用 Row 组件来包裹 Column 和 Divider
+    Row {
+        Column(
+            modifier = Modifier
+                .width(250.dp)
+                .fillMaxHeight()
+                .padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp)
+        ) {
+            // 侧边栏的内容...
+            SidebarButton("首页", Icons.Filled.Home)
+            DrawerButton("系统管理", Icons.Filled.Settings)
+            DrawerButton("系统监控", Icons.Filled.Phone)
+            DrawerButton("系统工具", Icons.Filled.Person)
+            // 其他按钮可以继续添加在这里...
         }
-        // 侧边栏的内容...
-        SidebarButton("系统管理", Icons.Filled.Settings)
-        DrawerButton("用户管理", Icons.Filled.Person)
-        // 其他按钮可以继续添加在这里...
+        // 添加分割线
+        Divider(
+            color = Color.Gray, // 分割线的颜色
+            modifier = Modifier
+                .fillMaxHeight()
+                .width(1.dp) // 分割线的宽度
+        )
     }
 }
 
@@ -79,7 +84,7 @@ fun SidebarButton(text: String, icon: ImageVector) {
 }
 
 @Composable
-fun DrawerButton( text: String, icon: ImageVector) {
+fun DrawerButton(text: String, icon: ImageVector) {
     var expanded by remember { mutableStateOf(false) }
     Column {
         Button(
