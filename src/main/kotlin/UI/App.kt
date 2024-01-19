@@ -1,6 +1,8 @@
 package UI
 
+import MainContent
 import MineralStatistics
+import SideBar
 import UI.page.AppBar
 import UsersFlow
 import androidx.compose.foundation.layout.*
@@ -19,24 +21,6 @@ import androidx.compose.ui.unit.dp
 fun App() {
     Column {
         AppBar()
-        Row {
-            Column (
-                modifier = Modifier.padding(16.dp), // 添加一些内边距
-                verticalArrangement = Arrangement.spacedBy(8.dp) // 为每个按钮添加间距
-            ) {
-                repeat(6) {
-                    Button(
-                        onClick = {}, modifier = Modifier.width(170.dp),
-                        colors = ButtonDefaults.buttonColors(backgroundColor = Color(0xffFFFBF0))
-                    ) {
-                        Text("按钮")
-                    }
-                }
-            }
-            UsersFlow()
-            Column {
-                MineralStatistics()
-            }
-        }
+        MainContent()
     }
 }
