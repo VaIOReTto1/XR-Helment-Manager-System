@@ -3,6 +3,8 @@ package UI.config
 import androidx.compose.foundation.Image
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.res.loadImageBitmap
 import java.io.InputStream
@@ -36,11 +38,12 @@ object MyIcons {
     val edit = IconInfo("icon/xiugai.png", "编辑")
     val user = IconInfo("icon/yonghu-yuan.png", "用户")
     val mulUser = IconInfo("icon/zaixianyonghu.png", "多用户")
-    val setting = IconInfo("icon/settings.png", "设置")
+    val setting = IconInfo("icon/shezhi.png", "设置")
+    val notification = IconInfo("icon/tongzhi.png", "设置")
 }
 
 @Composable
-fun AppIcon(iconInfo: IconInfo,modifier: Modifier) {
+fun AppIcon(iconInfo: IconInfo, modifier: Modifier, color: Long) {
     val image: ImageBitmap
     val inputStream: InputStream? = Thread.currentThread().contextClassLoader.getResourceAsStream(iconInfo.iconPath)
     if (inputStream != null) {
@@ -50,6 +53,13 @@ fun AppIcon(iconInfo: IconInfo,modifier: Modifier) {
         throw IllegalStateException("Could not load image from path: ${iconInfo.iconPath}")
     }
 
-    Image(bitmap = image, contentDescription = iconInfo.contentDescription,modifier = modifier,)
+    Image(
+        bitmap = image,
+        contentDescription = iconInfo.contentDescription,
+        modifier = modifier,
+        colorFilter = ColorFilter.tint(
+            Color(color)
+        )
+    )
 }
 

@@ -1,70 +1,40 @@
 import UI.config.AppIcon
 import UI.config.IconInfo
 import UI.config.MyIcons
+import UI.page.AppBar
 import androidx.compose.animation.*
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
-import androidx.compose.material.icons.rounded.Settings
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
-
-@Composable
-fun MainContent() {
-    // 状态来控制侧边栏的显示与隐藏
-    val (isDrawerOpen, setDrawerOpen) = remember { mutableStateOf(true) }
-
-    // 创建一个水平的布局
-    Row {
-        // 使用 AnimatedVisibility 来为侧边栏添加动画效果
-        AnimatedVisibility(
-            visible = isDrawerOpen,
-            enter = slideInHorizontally() + fadeIn(), // 从左侧滑入并淡入
-            exit = slideOutHorizontally() + fadeOut() // 向左侧滑出并淡出
-        ) {
-            SideBar(setDrawerOpen)
-        }
-
-        // 主内容
-        Column(
-            modifier = Modifier.fillMaxSize()
-        ) {
-            // 这里是主内容，当侧边栏关闭时将占据整个屏幕
-            Button(onClick = { setDrawerOpen(!isDrawerOpen) }) {
-                Text(if (isDrawerOpen) "关闭侧边栏" else "打开侧边栏")
-            }
-            // 其他主内容组件
-            MineralStatistics()
-        }
-    }
-}
 
 @Composable
 fun SideBar(setDrawerOpen: (Boolean) -> Unit) {
     // 使用 Row 组件来包裹 Column 和 Divider
     Row {
         Column(
-            modifier = Modifier
+            modifier = Modifier.background(Color(0xffeeeeeee))
                 .width(250.dp)
                 .fillMaxHeight()
                 .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
             // 侧边栏的内容...
-            SidebarButton("首页", MyIcons.home,modifier = Modifier.size(15.dp).background(Color.White))
-            DrawerButton("系统管理", MyIcons.setting,modifier = Modifier.size(15.dp).background(Color.White))
-            DrawerButton("系统监控", MyIcons.systemMonitor,modifier = Modifier.size(15.dp).background(Color.White))
-            DrawerButton("系统工具", MyIcons.systemTool,modifier = Modifier.size(15.dp).background(Color.White))
+            SidebarButton("首页", MyIcons.home, modifier = Modifier.size(19.dp), 0xff000000)
+            DrawerButton("系统管理", MyIcons.setting, modifier = Modifier.size(24.dp), 0xff000000)
+            DrawerButton("系统监控", MyIcons.systemMonitor, modifier = Modifier.size(22.dp), 0xff000000)
+            DrawerButton("系统工具", MyIcons.systemTool, modifier = Modifier.size(19.dp), 0xff000000)
             // 其他按钮可以继续添加在这里...
         }
         // 添加分割线
         Divider(
-            color = Color.Gray, // 分割线的颜色
+            color = Color(0xffcccccc), // 分割线的颜色
             modifier = Modifier
                 .fillMaxHeight()
                 .width(1.dp) // 分割线的宽度
@@ -73,22 +43,29 @@ fun SideBar(setDrawerOpen: (Boolean) -> Unit) {
 }
 
 @Composable
-fun SidebarButton(text: String, iconInfo: IconInfo,modifier: Modifier) {
+fun SidebarButton(text: String, iconInfo: IconInfo, modifier: Modifier, color: Long) {
     Button(
-        onClick = { /* TODO: Handle button click */ },
+        onClick = { /* Handle button click */ },
         modifier = Modifier
             .fillMaxWidth()
             .height(48.dp),
         colors = ButtonDefaults.buttonColors(backgroundColor = Color(0xFFE0E0E0))
     ) {
-        AppIcon(iconInfo,modifier)
-        Spacer(Modifier.width(8.dp)) // 图标与文字之间的间距
-        Text(text)
+        Row(
+            horizontalArrangement = Arrangement.Start,
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.fillMaxWidth().padding(start = 10.dp)
+        ) {
+            AppIcon(iconInfo, modifier, color)
+            Spacer(Modifier.width(18.dp)) // 图标与文字之间的间距
+            Text(text, modifier = Modifier.weight(1f)) // Text occupies the space left
+            // Spacer has been removed here as it's no longer needed
+        }
     }
 }
 
 @Composable
-fun DrawerButton(text: String, iconInfo: IconInfo,modifier: Modifier) {
+fun DrawerButton(text: String, iconInfo: IconInfo, modifier: Modifier, color: Long) {
     var expanded by remember { mutableStateOf(false) }
     Column {
         Button(
@@ -98,20 +75,29 @@ fun DrawerButton(text: String, iconInfo: IconInfo,modifier: Modifier) {
                 .height(48.dp),
             colors = ButtonDefaults.buttonColors(backgroundColor = Color(0xFFE0E0E0))
         ) {
-            AppIcon(iconInfo,modifier)
-            Spacer(Modifier.width(8.dp))
-            Text(text)
-            Icon(
-                if (expanded) Icons.Filled.KeyboardArrowUp else Icons.Filled.KeyboardArrowDown,
-                contentDescription = null
-            )
+            Row(
+                horizontalArrangement = Arrangement.Start,
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.fillMaxWidth().padding(start = 10.dp)
+            ) {
+                AppIcon(iconInfo, modifier, color)
+                Spacer(Modifier.width(8.dp))
+                Text(text, modifier = Modifier.weight(1f)) // Text occupies the space left
+                Icon(
+                    if (expanded) Icons.Filled.KeyboardArrowUp else Icons.Filled.KeyboardArrowDown,
+                    contentDescription = "Expand or collapse button",
+                    modifier = Modifier.align(Alignment.CenterVertically) // Align icon vertically
+                )
+            }
         }
-        // 根据抽屉的展开状态显示内容
-        if (expanded) {
-            // 抽屉内容的伪代码，应该根据实际内容来定制
-            Text("抽屉内的选项1")
-            Text("抽屉内的选项2")
-            // ...可以继续添加其他选项
+        // Content of the drawer when expanded
+        AnimatedVisibility(visible = expanded) {
+            Column(modifier = Modifier.fillMaxWidth().padding(start = 48.dp)) {
+                // Drawer contents
+                Text("抽屉内的选项1")
+                Text("抽屉内的选项2")
+                // ...可以继续添加其他选项
+            }
         }
     }
 }
