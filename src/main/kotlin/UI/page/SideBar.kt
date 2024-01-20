@@ -1,9 +1,13 @@
+import UI.config.AppIcon
+import UI.config.IconInfo
+import UI.config.MyIcons
 import androidx.compose.animation.*
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
+import androidx.compose.material.icons.rounded.Settings
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -52,10 +56,10 @@ fun SideBar(setDrawerOpen: (Boolean) -> Unit) {
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
             // 侧边栏的内容...
-            SidebarButton("首页", Icons.Filled.Home)
-            DrawerButton("系统管理", Icons.Filled.Settings)
-            DrawerButton("系统监控", Icons.Filled.Phone)
-            DrawerButton("系统工具", Icons.Filled.Person)
+            SidebarButton("首页", MyIcons.home,modifier = Modifier.size(15.dp).background(Color.White))
+            DrawerButton("系统管理", MyIcons.setting,modifier = Modifier.size(15.dp).background(Color.White))
+            DrawerButton("系统监控", MyIcons.systemMonitor,modifier = Modifier.size(15.dp).background(Color.White))
+            DrawerButton("系统工具", MyIcons.systemTool,modifier = Modifier.size(15.dp).background(Color.White))
             // 其他按钮可以继续添加在这里...
         }
         // 添加分割线
@@ -69,7 +73,7 @@ fun SideBar(setDrawerOpen: (Boolean) -> Unit) {
 }
 
 @Composable
-fun SidebarButton(text: String, icon: ImageVector) {
+fun SidebarButton(text: String, iconInfo: IconInfo,modifier: Modifier) {
     Button(
         onClick = { /* TODO: Handle button click */ },
         modifier = Modifier
@@ -77,14 +81,14 @@ fun SidebarButton(text: String, icon: ImageVector) {
             .height(48.dp),
         colors = ButtonDefaults.buttonColors(backgroundColor = Color(0xFFE0E0E0))
     ) {
-        Icon(icon, contentDescription = null) // 添加图标
+        AppIcon(iconInfo,modifier)
         Spacer(Modifier.width(8.dp)) // 图标与文字之间的间距
         Text(text)
     }
 }
 
 @Composable
-fun DrawerButton(text: String, icon: ImageVector) {
+fun DrawerButton(text: String, iconInfo: IconInfo,modifier: Modifier) {
     var expanded by remember { mutableStateOf(false) }
     Column {
         Button(
@@ -94,7 +98,7 @@ fun DrawerButton(text: String, icon: ImageVector) {
                 .height(48.dp),
             colors = ButtonDefaults.buttonColors(backgroundColor = Color(0xFFE0E0E0))
         ) {
-            Icon(icon, contentDescription = null)
+            AppIcon(iconInfo,modifier)
             Spacer(Modifier.width(8.dp))
             Text(text)
             Icon(
