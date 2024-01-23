@@ -42,6 +42,7 @@ object MyIcons {
     val notification = IconInfo("icon/tongzhi.png", "设置")
 }
 
+// 定义图标引用的对象
 @Composable
 fun AppIcon(iconInfo: IconInfo, modifier: Modifier, color: Long) {
     val image: ImageBitmap
