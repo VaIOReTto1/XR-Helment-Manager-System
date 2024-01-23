@@ -1,7 +1,7 @@
 package UI.page
 
-import UI.config.AppIcon
-import UI.config.MyIcons
+import config.AppIcon
+import config.MyIcons
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -53,9 +53,9 @@ fun AppBar(onMenuClick: () -> Unit) {
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(12.dp)
         ) {
-            AppIcon(MyIcons.notification, Modifier.size(22.dp),0xffffffff)
-            AppIcon(MyIcons.help, Modifier.size(23.dp),0xffffffff)
-            AppIcon(MyIcons.user, Modifier.size(24.dp),0xffffffff)
+            AppIcon(MyIcons.notification, Modifier.size(22.dp), 0xffffffff)
+            AppIcon(MyIcons.help, Modifier.size(23.dp), 0xffffffff)
+            AppIcon(MyIcons.user, Modifier.size(24.dp), 0xffffffff)
         }
     }
 }

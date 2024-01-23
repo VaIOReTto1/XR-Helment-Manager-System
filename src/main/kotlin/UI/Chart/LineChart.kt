@@ -252,11 +252,3 @@ fun LineChart(payload: List<List<LineData>>, modifier: Modifier) {
         }
     }
 }
-
-data class LineModel(
-    val startX: Float,
-    val startY: Float,
-    val endX: Float,
-    val endY: Float,
-    val color: Long
-)

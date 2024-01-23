@@ -6,6 +6,14 @@ data class LineData(
     val groupName:String = ""
 )
 
+data class LineModel(
+    val startX: Float,
+    val startY: Float,
+    val endX: Float,
+    val endY: Float,
+    val color: Long
+)
+
 data class PieData(
     val name:String,
     val amount:Float,

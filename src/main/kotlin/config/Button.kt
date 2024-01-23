@@ -1,4 +1,4 @@
-package UI.config
+package config
 
 import ColorTheme
 import androidx.compose.animation.*
@@ -35,7 +35,7 @@ fun ButtonBase(
     contentColor: Int,
     borderColor: Color,
     isSelected: Boolean,
-    isDrawerButton:Boolean = false,
+    isDrawerButton: Boolean = false,
     onClick: () -> Unit
 ) {
     Button(
@@ -59,7 +59,7 @@ fun ButtonBase(
             // 按钮文字
             Text(text, color = Color(contentColor), modifier = Modifier.weight(1f))
             // 展开或折叠按钮
-            if (isDrawerButton){
+            if (isDrawerButton) {
                 Icon(
                     if (isSelected) Icons.Filled.KeyboardArrowUp else Icons.Filled.KeyboardArrowDown,
                     contentDescription = "Expand or collapse button",
@@ -68,7 +68,7 @@ fun ButtonBase(
                 )
             }
             // 选中状态的按钮，添加一个宽度为5dp的灰色条纹
-            if (isSelected&&!isDrawerButton) {
+            if (isSelected && !isDrawerButton) {
                 Box(
                     modifier = Modifier
                         .align(Alignment.CenterVertically)
@@ -101,12 +101,14 @@ fun DrawerButton(
     isSelected: Boolean,
     onClick: () -> Unit
 ) {
+    var isExpanded by remember { mutableStateOf(false) }
     val (backgroundColor, contentColor, borderColor) = ButtonStyle(isSelected)
-    ButtonBase(text, iconInfo, backgroundColor, contentColor, borderColor, isSelected,true) {
+    ButtonBase(text, iconInfo, backgroundColor, contentColor, borderColor, isSelected, true) {
+        isExpanded=!isExpanded
         onClick()
     }
     // 动画效果
-    AnimatedVisibility(visible = isSelected) {
+    AnimatedVisibility(visible = isExpanded) {
         DrawerContent()
     }
 }

@@ -1,4 +1,4 @@
-package UI.config
+package config
 
 import androidx.compose.foundation.Image
 import androidx.compose.runtime.Composable
