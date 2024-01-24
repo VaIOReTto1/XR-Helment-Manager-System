@@ -12,9 +12,19 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 
-enum class AppPage {
-    Home, SystemManagement, SystemMonitoring, SystemTools
+enum class AppPage(val title: String) {
+    Home("首页"),
+    SystemManagement("系统管理"),
+    SystemMonitoring("系统监控"),
+    SystemTools("系统工具");
+
+    companion object {
+        fun fromTitle(title: String): AppPage? {
+            return values().find { it.title == title }
+        }
+    }
 }
+
 
 @Composable
 fun App() {
@@ -32,7 +42,7 @@ fun App() {
                 enter = slideInHorizontally() + fadeIn(),
                 exit = slideOutHorizontally() + fadeOut()
             ) {
-                SideBar { page ->
+                SideBar(selectedPage) { page ->
                     setSelectedPage(page) // 更新选中的页面
                 }
             }

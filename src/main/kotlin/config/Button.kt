@@ -65,9 +65,6 @@ fun ButtonBase(
                     modifier = Modifier.align(Alignment.CenterVertically)
                 )
             }
-            // 选中状态的按钮，添加一个宽度为5dp的灰色条纹
-            if (isSelected && !isDrawerButton) {
-            }
         }
     }
 }

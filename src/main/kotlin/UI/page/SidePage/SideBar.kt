@@ -12,10 +12,7 @@ import config.MyIcons
 import config.SidebarButton
 
 @Composable
-fun SideBar(onPageSelect: (AppPage) -> Unit) {
-    // 跟踪当前选中的按钮
-    var selectedButton by remember { mutableStateOf("首页") }
-
+fun SideBar(selectedPage: AppPage, onPageSelect: (AppPage) -> Unit) {
     Row {
         Column(
             modifier = Modifier
@@ -28,35 +25,34 @@ fun SideBar(onPageSelect: (AppPage) -> Unit) {
             SidebarButton(
                 text = "首页",
                 iconInfo = MyIcons.home,
-                isSelected = selectedButton == "首页"
+                isSelected = selectedPage.title == "首页"
             ) {
-                selectedButton = "首页"
                 onPageSelect(AppPage.SystemManagement)
             }
             // 系统管理键
             DrawerButton(
                 text = "系统管理",
                 iconInfo = MyIcons.setting,
-                isSelected = selectedButton == "系统管理",
-                { SystemDrawer(onPageSelect) }
+                isSelected = selectedPage.title == "系统管理",
+                { SystemDrawer(onPageSelect, selectedPage) }
             ) {
-                selectedButton = "系统管理"
+                onPageSelect(AppPage.SystemManagement)
             }
             // 系统监控键
             DrawerButton(
                 text = "系统监控",
                 iconInfo = MyIcons.systemMonitor,
-                isSelected = selectedButton == "系统监控"
+                isSelected = selectedPage.title == "系统监控"
             ) {
-                selectedButton = "系统监控"
+                onPageSelect(AppPage.SystemMonitoring)
             }
             // 系统工具键
             DrawerButton(
                 text = "系统工具",
                 iconInfo = MyIcons.systemTool,
-                isSelected = selectedButton == "系统工具"
+                isSelected = selectedPage.title == "系统工具"
             ) {
-                selectedButton = "系统工具"
+                onPageSelect(AppPage.SystemTools)
             }
         }
         // 分割线

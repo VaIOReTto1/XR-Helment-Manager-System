@@ -9,12 +9,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import config.DrawerContentButton
 import config.MyIcons
-import config.SidebarButton
 
 @Composable
-fun SystemDrawer(onPageSelect: (AppPage) -> Unit) {
-    var selectedButton by remember { mutableStateOf("") }
-
+fun SystemDrawer(onPageSelect: (AppPage) -> Unit,selectedPage:AppPage) {
     Column(
         modifier = Modifier
             .background(ColorTheme.DefaultBgColor)
@@ -22,7 +19,7 @@ fun SystemDrawer(onPageSelect: (AppPage) -> Unit) {
     ) {
         val buttons = listOf("首页", "系统管理", "系统监控", "系统工具")
         buttons.forEach { buttonText ->
-            val isSelected = selectedButton == buttonText
+            val isSelected = selectedPage.title == buttonText
             Row {
                 Box(modifier = Modifier.width(249.dp)) {
                     DrawerContentButton(
@@ -36,7 +33,7 @@ fun SystemDrawer(onPageSelect: (AppPage) -> Unit) {
                         },
                         isSelected = isSelected,
                     ) {
-                        selectedButton = buttonText
+                        //selectedButton = buttonText
                         onPageSelect(
                             when (buttonText) {
                                 "首页" -> AppPage.Home
