@@ -1,6 +1,7 @@
 package config
 
 import ColorTheme
+import UI.AppPage
 import androidx.compose.animation.*
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
@@ -94,7 +95,7 @@ fun DrawerButton(
     iconInfo: IconInfo,
     isSelected: Boolean,
     expandedContent: @Composable () -> Unit = {}, // 默认为空的 Composable lambda
-    onClick: () -> Unit
+    onClick: () -> Unit,
 ) {
     var isExpanded by remember { mutableStateOf(false) }
     val (backgroundColor, contentColor) = ButtonStyle(isSelected)

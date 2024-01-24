@@ -1,3 +1,4 @@
+import UI.AppPage
 import UI.page.SidePage.SystemDrawer
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -11,7 +12,7 @@ import config.MyIcons
 import config.SidebarButton
 
 @Composable
-fun SideBar() {
+fun SideBar(onPageSelect: (AppPage) -> Unit) {
     // 跟踪当前选中的按钮
     var selectedButton by remember { mutableStateOf("首页") }
 
@@ -21,7 +22,7 @@ fun SideBar() {
                 .background(ColorTheme.DefaultBgColor)
                 .width(Dimensions.SidebarWidth)
                 .fillMaxHeight(),
-            //verticalArrangement = Arrangement.spacedBy(12.dp)
+            verticalArrangement = Arrangement.spacedBy(4.dp)
         ) {
             // 首页键
             SidebarButton(
@@ -30,13 +31,14 @@ fun SideBar() {
                 isSelected = selectedButton == "首页"
             ) {
                 selectedButton = "首页" // Update the selected button
+                onPageSelect(AppPage.SystemManagement)
             }
             // 系统管理键
             DrawerButton(
                 text = "系统管理",
                 iconInfo = MyIcons.setting,
                 isSelected = selectedButton == "系统管理",
-                { SystemDrawer() }
+                { SystemDrawer(onPageSelect) }
             ) {
                 selectedButton = "系统管理"
             }
