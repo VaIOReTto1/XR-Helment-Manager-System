@@ -1,11 +1,8 @@
 package config
 
 import ColorTheme
-import UI.AppPage
+import Dimensions
 import androidx.compose.animation.*
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
@@ -17,9 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.toArgb
-import androidx.compose.ui.unit.dp
 
 // 定义按钮的样式
 @Composable
@@ -38,6 +33,7 @@ fun ButtonBase(
     contentColor: Int,
     isSelected: Boolean,
     isDrawerButton: Boolean = false,
+    isExpanded: Boolean = false,
     onClick: () -> Unit
 ) {
     Card(
@@ -63,14 +59,15 @@ fun ButtonBase(
             // 展开或折叠按钮
             if (isDrawerButton) {
                 Icon(
-                    if (isSelected) Icons.Filled.KeyboardArrowUp else Icons.Filled.KeyboardArrowDown,
+                    if (isExpanded) Icons.Filled.KeyboardArrowUp else Icons.Filled.KeyboardArrowDown,
                     contentDescription = "Expand or collapse button",
                     tint = Color.Black, // 设置图标的着色
                     modifier = Modifier.align(Alignment.CenterVertically)
                 )
             }
             // 选中状态的按钮，添加一个宽度为5dp的灰色条纹
-            if (isSelected && !isDrawerButton) {}
+            if (isSelected && !isDrawerButton) {
+            }
         }
     }
 }
@@ -94,17 +91,46 @@ fun DrawerButton(
     text: String,
     iconInfo: IconInfo,
     isSelected: Boolean,
-    expandedContent: @Composable () -> Unit = {}, // 默认为空的 Composable lambda
+    expandedContent: @Composable () -> Unit = {},
     onClick: () -> Unit,
 ) {
     var isExpanded by remember { mutableStateOf(false) }
     val (backgroundColor, contentColor) = ButtonStyle(isSelected)
-    ButtonBase(text, iconInfo, backgroundColor, contentColor,  isSelected, true) {
+    ButtonBase(text, iconInfo, backgroundColor, contentColor, isSelected, true, isExpanded) {
         isExpanded = !isExpanded
         onClick()
     }
     // 动画效果
     AnimatedVisibility(visible = isExpanded) {
-        expandedContent() // 调用 expandedContent 以在 AnimatedVisibility 中展示自定义内容
+        expandedContent()
+    }
+}
+
+@Composable
+fun DrawerContentButton(
+    text: String,
+    iconInfo: IconInfo,
+    isSelected: Boolean,
+    onClick: () -> Unit
+) {
+    val (backgroundColor, contentColor) = ButtonStyle(isSelected)
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(Dimensions.ButtonHeight)
+            .clickable { onClick() },
+        backgroundColor = backgroundColor,
+        shape = RectangleShape
+    ) {
+        Row(
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            // 按钮图标
+            AppIcon(iconInfo, Modifier.size(Dimensions.IconSpacing), contentColor.toLong())
+            // 按钮文字
+            Text(text, color = Color(contentColor), modifier = Modifier.padding(start = Dimensions.IconSpacing))
+        }
     }
 }

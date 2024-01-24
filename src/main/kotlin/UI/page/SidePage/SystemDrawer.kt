@@ -4,17 +4,16 @@ import Dimensions
 import UI.AppPage
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Divider
 import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import config.DrawerContentButton
 import config.MyIcons
 import config.SidebarButton
 
 @Composable
 fun SystemDrawer(onPageSelect: (AppPage) -> Unit) {
-    var selectedButton by remember { mutableStateOf("首页") }
+    var selectedButton by remember { mutableStateOf("") }
 
     Column(
         modifier = Modifier
@@ -24,21 +23,20 @@ fun SystemDrawer(onPageSelect: (AppPage) -> Unit) {
         val buttons = listOf("首页", "系统管理", "系统监控", "系统工具")
         buttons.forEach { buttonText ->
             val isSelected = selectedButton == buttonText
-            // Draw the SidebarButton or DrawerButton here
             Row {
                 Box(modifier = Modifier.width(249.dp)) {
-                    SidebarButton(
+                    DrawerContentButton(
                         text = buttonText,
                         iconInfo = when (buttonText) {
                             "首页" -> MyIcons.home
                             "系统管理" -> MyIcons.setting
                             "系统监控" -> MyIcons.systemMonitor
                             "系统工具" -> MyIcons.systemTool
-                            else -> MyIcons.home // Replace with your default icon
+                            else -> MyIcons.home
                         },
                         isSelected = isSelected,
                     ) {
-                        selectedButton = buttonText // Update the selected button
+                        selectedButton = buttonText
                         onPageSelect(
                             when (buttonText) {
                                 "首页" -> AppPage.Home

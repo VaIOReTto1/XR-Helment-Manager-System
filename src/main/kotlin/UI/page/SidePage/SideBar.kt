@@ -30,7 +30,7 @@ fun SideBar(onPageSelect: (AppPage) -> Unit) {
                 iconInfo = MyIcons.home,
                 isSelected = selectedButton == "首页"
             ) {
-                selectedButton = "首页" // Update the selected button
+                selectedButton = "首页"
                 onPageSelect(AppPage.SystemManagement)
             }
             // 系统管理键
