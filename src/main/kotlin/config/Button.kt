@@ -5,6 +5,7 @@ import androidx.compose.animation.*
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -14,16 +15,17 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.unit.dp
 
 // 定义按钮的样式
 @Composable
-fun ButtonStyle(isSelected: Boolean): Triple<Color, Int, Color> {
+fun ButtonStyle(isSelected: Boolean): Pair<Color, Int> {
     val backgroundColor = if (isSelected) ColorTheme.SelectedBgColor else ColorTheme.DefaultBgColor // 选中状态的背景颜色
     val contentColor = if (isSelected) ColorTheme.SelectedContentColor else ColorTheme.DefaultContentColor // 选中状态的文字颜色
-    val borderColor = if (isSelected) ColorTheme.BorderColor else ColorTheme.Transparent // 选中状态的边框颜色
-    return Triple(backgroundColor, contentColor.toArgb(), borderColor)
+    return Pair(backgroundColor, contentColor.toArgb())
 }
 
 // 定义按钮的基类
@@ -33,18 +35,17 @@ fun ButtonBase(
     iconInfo: IconInfo,
     backgroundColor: Color,
     contentColor: Int,
-    borderColor: Color,
     isSelected: Boolean,
     isDrawerButton: Boolean = false,
     onClick: () -> Unit
 ) {
-    Button(
-        onClick = onClick,
+    Card(
         modifier = Modifier
             .fillMaxWidth()
             .height(Dimensions.ButtonHeight)
-            .border(BorderStroke(1.dp, borderColor)),
-        colors = ButtonDefaults.buttonColors(backgroundColor = backgroundColor)
+            .clickable { onClick() },
+        backgroundColor = backgroundColor,
+        shape = RectangleShape
     ) {
         Row(
             horizontalArrangement = Arrangement.Start,
@@ -68,18 +69,11 @@ fun ButtonBase(
                 )
             }
             // 选中状态的按钮，添加一个宽度为5dp的灰色条纹
-            if (isSelected && !isDrawerButton) {
-                Box(
-                    modifier = Modifier
-                        .align(Alignment.CenterVertically)
-                        .width(5.dp)
-                        .fillMaxHeight()
-                        .background(Color(contentColor))
-                )
-            }
+            if (isSelected && !isDrawerButton) {}
         }
     }
 }
+
 
 // 定义侧边栏按钮
 @Composable
@@ -89,8 +83,8 @@ fun SidebarButton(
     isSelected: Boolean,
     onClick: () -> Unit
 ) {
-    val (backgroundColor, contentColor, borderColor) = ButtonStyle(isSelected)
-    ButtonBase(text, iconInfo, backgroundColor, contentColor, borderColor, isSelected, onClick = onClick)
+    val (backgroundColor, contentColor) = ButtonStyle(isSelected)
+    ButtonBase(text, iconInfo, backgroundColor, contentColor, isSelected, onClick = onClick)
 }
 
 // 定义抽屉按钮
@@ -99,25 +93,17 @@ fun DrawerButton(
     text: String,
     iconInfo: IconInfo,
     isSelected: Boolean,
+    expandedContent: @Composable () -> Unit = {}, // 默认为空的 Composable lambda
     onClick: () -> Unit
 ) {
     var isExpanded by remember { mutableStateOf(false) }
-    val (backgroundColor, contentColor, borderColor) = ButtonStyle(isSelected)
-    ButtonBase(text, iconInfo, backgroundColor, contentColor, borderColor, isSelected, true) {
-        isExpanded=!isExpanded
+    val (backgroundColor, contentColor) = ButtonStyle(isSelected)
+    ButtonBase(text, iconInfo, backgroundColor, contentColor,  isSelected, true) {
+        isExpanded = !isExpanded
         onClick()
     }
     // 动画效果
     AnimatedVisibility(visible = isExpanded) {
-        DrawerContent()
-    }
-}
-
-// 定义抽屉内容
-@Composable
-fun DrawerContent() {
-    Column(modifier = Modifier.fillMaxWidth().padding(start = Dimensions.DrawerIndent)) {
-        Text("抽屉内的选项1", color = ColorTheme.DefaultContentColor)
-        Text("抽屉内的选项2", color = ColorTheme.DefaultContentColor)
+        expandedContent() // 调用 expandedContent 以在 AnimatedVisibility 中展示自定义内容
     }
 }

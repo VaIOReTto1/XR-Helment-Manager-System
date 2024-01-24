@@ -9,6 +9,18 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 
+// 定义用户状态
+enum class UserStatus {
+    Working, NotWorking, InDanger
+}
+
+// 定义用户信息
+data class User(
+    val name: String,
+    val status: UserStatus
+)
+
+// 定义用户列表
 @Composable
 fun UsersFlow() {
     val users = listOf(
@@ -38,6 +50,7 @@ fun UsersFlow() {
     }
 }
 
+// 定义用户卡片
 @Composable
 fun UserCard(user: User) {
     Card(
@@ -70,6 +83,7 @@ fun UserCard(user: User) {
     }
 }
 
+// 定义用户状态标签
 @Composable
 fun UserStatusTag(status: UserStatus) {
     val (text, color) = when (status) {
@@ -86,12 +100,3 @@ fun UserStatusTag(status: UserStatus) {
         Text(text = text, color = Color.White)
     }
 }
-
-enum class UserStatus {
-    Working, NotWorking, InDanger
-}
-
-data class User(
-    val name: String,
-    val status: UserStatus
-)

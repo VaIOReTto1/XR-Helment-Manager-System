@@ -1,8 +1,10 @@
+import UI.page.SidePage.SystemDrawer
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import config.DrawerButton
 import config.MyIcons
@@ -18,9 +20,8 @@ fun SideBar() {
             modifier = Modifier
                 .background(ColorTheme.DefaultBgColor)
                 .width(Dimensions.SidebarWidth)
-                .fillMaxHeight()
-                .padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(12.dp)
+                .fillMaxHeight(),
+            //verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
             // 首页键
             SidebarButton(
@@ -34,7 +35,8 @@ fun SideBar() {
             DrawerButton(
                 text = "系统管理",
                 iconInfo = MyIcons.setting,
-                isSelected = selectedButton == "系统管理"
+                isSelected = selectedButton == "系统管理",
+                { SystemDrawer() }
             ) {
                 selectedButton = "系统管理"
             }
@@ -57,7 +59,7 @@ fun SideBar() {
         }
         // 分割线
         Divider(
-            color = ColorTheme.DefaultContentColor,
+            color = Color(0xffcccccc),
             modifier = Modifier
                 .fillMaxHeight()
                 .width(Dimensions.DividerWidth)
