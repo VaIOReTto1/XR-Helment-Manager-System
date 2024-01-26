@@ -15,7 +15,7 @@ fun main() = application {
                 isOpen.value = false
             },
             title = "XR智能头盔管理系统",
-            state = rememberWindowState(width = 1600.dp, height = 900.dp),
+            state = rememberWindowState(width = 1600.dp, height = 956.dp),
         ) {
             App()
         }

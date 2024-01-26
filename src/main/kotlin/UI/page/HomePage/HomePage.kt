@@ -13,12 +13,17 @@ fun HomePage() {
         modifier = Modifier.background(Theme.thirdColor).fillMaxSize()
             .padding(start = 29.dp, top = 22.dp, end = 30.dp, bottom = 16.dp)
     ) {
-       Row(
-           horizontalArrangement = Arrangement.spacedBy(28.dp)
-       ) {
-           PersonMessage()
-           ThemeChange()
-           Weather()
-       }
+        Row(
+            horizontalArrangement = Arrangement.spacedBy(28.dp)
+        ) {
+            PersonMessage()
+            ThemeChange()
+            Weather()
+        }
+        Row {
+            Column {
+                MessageArea()
+            }
+        }
     }
 }

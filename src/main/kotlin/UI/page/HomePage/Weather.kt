@@ -22,7 +22,7 @@ fun Weather() {
         modifier = Modifier
             .width(395.dp)
             .height(191.dp)
-            .border(width = 1.dp, color = Color(0xFF000000), shape = RoundedCornerShape(size = 7.dp))
+            .border(width = 0.5.dp, color = Color(0xFF000000), shape = RoundedCornerShape(size = 7.dp))
             .background(color = Color(0xFFEEF5FF), shape = RoundedCornerShape(size = 7.dp))
     ) {
         Column(
@@ -35,7 +35,7 @@ fun Weather() {
                     .height(100.dp)
             )
             Text(
-                text = "29℃",
+                text = "29 ℃",
                 style = TextStyle(
                     fontSize = 44.sp,
                     lineHeight = 64.sp,

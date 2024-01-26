@@ -35,7 +35,6 @@ fun PersonMessage() {
                 text = "姓名：xxx",
                 style = TextStyle(
                     fontSize = 20.sp,
-                    lineHeight = 29.sp,
                     fontWeight = FontWeight(400),
                     color = Color(0xFF000000)
                 ),
@@ -45,7 +44,6 @@ fun PersonMessage() {
                 text = "所属公司：xxxx",
                 style = TextStyle(
                     fontSize = 20.sp,
-                    lineHeight = 29.sp,
                     fontWeight = FontWeight(400),
                     color = Color(0xFF000000)
                 ),
