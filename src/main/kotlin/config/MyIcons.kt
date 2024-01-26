@@ -40,11 +40,12 @@ object MyIcons {
     val mulUser = IconInfo("icon/zaixianyonghu.png", "多用户")
     val setting = IconInfo("icon/shezhi.png", "设置")
     val notification = IconInfo("icon/tongzhi.png", "设置")
+    val could_day =IconInfo("icon/ic_partly_cloud_day.png","阴天")
 }
 
 // 定义图标引用的对象
 @Composable
-fun AppIcon(iconInfo: IconInfo, modifier: Modifier, color: Long) {
+fun AppIcon(iconInfo: IconInfo, modifier: Modifier, color: Long?=null) {
     val image: ImageBitmap
     val inputStream: InputStream? = Thread.currentThread().contextClassLoader.getResourceAsStream(iconInfo.iconPath)
     if (inputStream != null) {
@@ -58,9 +59,11 @@ fun AppIcon(iconInfo: IconInfo, modifier: Modifier, color: Long) {
         bitmap = image,
         contentDescription = iconInfo.contentDescription,
         modifier = modifier,
-        colorFilter = ColorFilter.tint(
-            Color(color)
-        )
+        colorFilter = color?.let { Color(it) }?.let {
+            ColorFilter.tint(
+                it
+            )
+        }
     )
 }
 

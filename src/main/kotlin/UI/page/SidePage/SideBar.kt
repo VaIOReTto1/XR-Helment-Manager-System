@@ -1,5 +1,5 @@
 import UI.AppPage
-import UI.page.SidePage.SystemDrawer
+import UI.page.SidePage.SystemManagementDrawer
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
@@ -34,7 +34,7 @@ fun SideBar(selectedPage: AppPage, onPageSelect: (AppPage) -> Unit) {
                 text = "系统管理",
                 iconInfo = MyIcons.setting,
                 isSelected = selectedPage.title == "系统管理",
-                { SystemDrawer(onPageSelect, selectedPage) }
+                { SystemManagementDrawer(onPageSelect, selectedPage) }
             ) {
                 onPageSelect(AppPage.SystemManagement)
             }

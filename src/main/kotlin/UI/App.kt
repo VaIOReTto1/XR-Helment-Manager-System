@@ -3,6 +3,7 @@ package UI
 import MineralStatistics
 import SideBar
 import UI.page.AppBar
+import UI.page.HomePage.HomePage
 import User
 import UsersFlow
 import androidx.compose.animation.*
@@ -47,7 +48,7 @@ fun App() {
                 }
             }
             when (selectedPage) {
-                AppPage.Home -> MineralStatistics()
+                AppPage.Home -> HomePage()
                 AppPage.SystemManagement -> UsersFlow()
                 AppPage.SystemMonitoring -> MineralStatistics()
                 AppPage.SystemTools -> MineralStatistics()

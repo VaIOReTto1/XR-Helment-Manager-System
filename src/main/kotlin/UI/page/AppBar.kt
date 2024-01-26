@@ -13,6 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import config.Theme
 
 @Composable
 fun AppBar(onMenuClick: () -> Unit) {
@@ -23,7 +24,7 @@ fun AppBar(onMenuClick: () -> Unit) {
         modifier = Modifier
             .fillMaxWidth()
             .height(56.dp)
-            .background(Color(0xff021039))
+            .background(Theme.primaryColor)
             .padding(horizontal = 20.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween

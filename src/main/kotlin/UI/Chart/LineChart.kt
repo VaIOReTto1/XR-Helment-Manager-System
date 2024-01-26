@@ -231,7 +231,6 @@ fun LineChart(payload: List<List<LineData>>, modifier: Modifier) {
                 ),
             )
 
-
             for (a in totalPointList.indices) {
                 if (a < loadPos) {
                     for (b in totalPointList[a].indices) {
@@ -248,7 +247,6 @@ fun LineChart(payload: List<List<LineData>>, modifier: Modifier) {
                     }
                 }
             }
-
         }
     }
 }

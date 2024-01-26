@@ -19,8 +19,8 @@ import androidx.compose.ui.graphics.toArgb
 // 定义按钮的样式
 @Composable
 fun ButtonStyle(isSelected: Boolean): Pair<Color, Int> {
-    val backgroundColor = if (isSelected) ColorTheme.SelectedBgColor else ColorTheme.DefaultBgColor // 选中状态的背景颜色
-    val contentColor = if (isSelected) ColorTheme.SelectedContentColor else ColorTheme.DefaultContentColor // 选中状态的文字颜色
+    val backgroundColor = if (isSelected) Theme.fourthColor else ColorTheme.DefaultBgColor // 选中状态的背景颜色
+    val contentColor = if (isSelected) Theme.primaryColor else ColorTheme.DefaultContentColor // 选中状态的文字颜色
     return Pair(backgroundColor, contentColor.toArgb())
 }
 

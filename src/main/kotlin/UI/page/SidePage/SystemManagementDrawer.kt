@@ -11,7 +11,7 @@ import config.DrawerContentButton
 import config.MyIcons
 
 @Composable
-fun SystemDrawer(onPageSelect: (AppPage) -> Unit,selectedPage:AppPage) {
+fun SystemManagementDrawer(onPageSelect: (AppPage) -> Unit, selectedPage:AppPage) {
     Column(
         modifier = Modifier
             .background(ColorTheme.DefaultBgColor)

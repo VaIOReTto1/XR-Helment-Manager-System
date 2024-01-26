@@ -1,5 +1,7 @@
 package widget
 
+import ChartType
+import DescriptionDirection
 import PieData
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.Canvas
@@ -28,19 +30,6 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.flow
 import kotlin.math.cos
 import kotlin.math.sin
-
-enum class ChartType {
-    Ring, Full
-}
-
-enum class DescriptionDirection {
-    LEFT,//左侧
-    TOP,//顶部
-    RIGHT,//右侧
-    BOTTOM,//底部
-    CIRCLE,//圆周
-}
-
 
 @Composable
 fun PieChart(payload: List<List<PieData>>) {

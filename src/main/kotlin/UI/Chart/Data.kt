@@ -19,3 +19,15 @@ data class PieData(
     val amount:Float,
     val color:Long,
 )
+
+enum class ChartType {
+    Ring, Full
+}
+
+enum class DescriptionDirection {
+    LEFT,//左侧
+    TOP,//顶部
+    RIGHT,//右侧
+    BOTTOM,//底部
+    CIRCLE,//圆周
+}
