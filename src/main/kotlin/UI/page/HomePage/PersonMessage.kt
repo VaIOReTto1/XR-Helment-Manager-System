@@ -1,5 +1,6 @@
 package UI.page.HomePage
 
+import CommonText
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
@@ -12,6 +13,11 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+
+@Composable
+fun ProfileDetail(label: String, value: String) {
+    CommonText("$label: $value", 20.sp)
+}
 
 @Composable
 fun PersonMessage() {
@@ -29,35 +35,12 @@ fun PersonMessage() {
                 .border(width = 1.dp, color = Color(0xFF000000)),
         )
         Column(
-            Modifier.padding(top = 26.dp, bottom = 25.dp)
+            Modifier.padding(top = 26.dp, bottom = 25.dp),
+            verticalArrangement = Arrangement.spacedBy(28.dp)
         ) {
-            Text(
-                text = "姓名：xxx",
-                style = TextStyle(
-                    fontSize = 20.sp,
-                    fontWeight = FontWeight(400),
-                    color = Color(0xFF000000)
-                ),
-                modifier = Modifier.padding(bottom = 28.dp)
-            )
-            Text(
-                text = "所属公司：xxxx",
-                style = TextStyle(
-                    fontSize = 20.sp,
-                    fontWeight = FontWeight(400),
-                    color = Color(0xFF000000)
-                ),
-                modifier = Modifier.padding(bottom = 28.dp)
-            )
-            Text(
-                text = "职务：管理员",
-                style = TextStyle(
-                    fontSize = 20.sp,
-                    lineHeight = 29.sp,
-                    fontWeight = FontWeight(400),
-                    color = Color(0xFF000000)
-                )
-            )
+            ProfileDetail("姓名", "xxx")
+            ProfileDetail("所属公司", "xxxx")
+            ProfileDetail("职务", "管理员")
         }
     }
 }

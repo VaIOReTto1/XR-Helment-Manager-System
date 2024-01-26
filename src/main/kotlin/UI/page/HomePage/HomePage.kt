@@ -16,13 +16,13 @@ fun HomePage() {
         Row(
             horizontalArrangement = Arrangement.spacedBy(28.dp)
         ) {
-            PersonMessage()
-            ThemeChange()
-            Weather()
+            PersonMessage() // 个人信息
+            ThemeChange() // 主题切换
+            Weather() // 天气
         }
         Row {
             Column {
-                MessageArea()
+                MessageArea() // 消息
             }
         }
     }
