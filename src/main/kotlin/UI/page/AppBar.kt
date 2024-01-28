@@ -16,7 +16,7 @@ import androidx.compose.ui.unit.dp
 import config.Theme
 
 @Composable
-fun AppBar(onMenuClick: () -> Unit) {
+fun AppBar(onMenuClick: () -> Unit,title:String) {
     // 创建观察和响应状态变化的变量
     val isMenuOpen = remember { mutableStateOf(true) }
 
@@ -47,7 +47,7 @@ fun AppBar(onMenuClick: () -> Unit) {
                 // 根据isMenuOpen的状态决定使用哪个图标
                 AppIcon(if (isMenuOpen.value) MyIcons.menuClose else MyIcons.openMenu, Modifier.size(22.dp), 0xffffffff)
             }
-            Text("首页", color = Color.White)
+            Text(title, color = Color.White)
         }
 
         Row(

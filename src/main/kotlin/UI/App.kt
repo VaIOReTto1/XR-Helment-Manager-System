@@ -35,7 +35,7 @@ fun App() {
     Column(
         modifier = Modifier.fillMaxSize()
     ) {
-        AppBar(onMenuClick = { setDrawerOpen(!isDrawerOpen) }) // 传递setDrawerOpen到AppBar
+        AppBar(onMenuClick = { setDrawerOpen(!isDrawerOpen) },selectedPage.title) // 传递setDrawerOpen到AppBar
         // 主内容
         Row {
             AnimatedVisibility(

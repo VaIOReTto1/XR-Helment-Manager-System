@@ -69,13 +69,15 @@ fun ThemeChange() {
                 }
             }
             Row(
-                modifier = Modifier.fillMaxWidth().padding(start = HomePageConfig.box_TBpadding, bottom = 18.dp),
+                modifier = Modifier.padding(start = HomePageConfig.box_TBpadding, bottom = 18.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                CommonText("主题颜色", 24.sp)
+                Box(modifier = Modifier.padding(end = HomePageConfig.box_RLpadding)) {
+                    CommonText("主题颜色", 24.sp)
+                }
                 Box(
                     modifier = Modifier
-                        .size(HomePageConfig.box_TBpadding).padding(start = HomePageConfig.box_RLpadding)
+                        .size(HomePageConfig.box_TBpadding)
                         .background(color = Color(0xFF7C93C3), shape = RoundedCornerShape(size = 3.dp))
                 )
             }
