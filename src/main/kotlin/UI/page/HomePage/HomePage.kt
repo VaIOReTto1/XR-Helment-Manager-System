@@ -30,6 +30,7 @@ fun HomePage() {
                 TicketsArea() // 工单
             }
             LogArea()
+            WorkerArea()
         }
     }
 }
