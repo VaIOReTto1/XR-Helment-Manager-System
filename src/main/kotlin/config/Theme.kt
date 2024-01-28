@@ -7,4 +7,5 @@ object Theme {
     val secondColor = Color(0xFF7C93C3)
     val thirdColor = Color(0xFF9EB8D9)
     val fourthColor = Color(0xFFEEF5FF)
+    val fifthColor = Color(0xFFFFFFFB)
 }

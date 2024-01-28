@@ -19,13 +19,17 @@ fun Weather() {
     ) {
         Row {
             Column(
-                modifier = Modifier.padding(start = 40.dp, top = 8.dp, end = 59.dp, bottom = 11.dp).fillMaxHeight(),
+                modifier = Modifier.padding(
+                    start = HomePageConfig.box_TBpadding,
+                    top = 8.dp,
+                    end = 59.dp,
+                    bottom = 11.dp
+                ).fillMaxHeight(),
                 verticalArrangement = Arrangement.Center
             ) {
                 AppIcon(
                     MyIcons.could_day, modifier = Modifier.padding(bottom = 8.dp)
-                        .width(100.dp)
-                        .height(100.dp)
+                        .size(100.dp)
                 )
                 CommonText("29 ℃", 44.sp)
             }

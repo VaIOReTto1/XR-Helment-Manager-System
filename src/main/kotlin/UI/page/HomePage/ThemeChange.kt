@@ -31,8 +31,8 @@ enum class ThemeChangeColor(val color: Color) {
 fun ThemeChangeColor.asColorBox() {
     Box(
         modifier = Modifier
-            .padding(end = 40.dp)
-            .size(40.dp)
+            .padding(end = HomePageConfig.box_TBpadding)
+            .size(HomePageConfig.box_TBpadding)
             .background(color = this.color, shape = RoundedCornerShape(size = 3.dp))
     )
 }
@@ -45,7 +45,14 @@ fun ThemeChange() {
             .height(191.dp)
     ) {
         Column {
-            Row(modifier = Modifier.fillMaxWidth().padding(start = 40.dp, end = 40.dp, top = 12.dp, bottom = 26.5.dp)) {
+            Row(
+                modifier = Modifier.fillMaxWidth().padding(
+                    start = HomePageConfig.box_TBpadding,
+                    end = HomePageConfig.box_TBpadding,
+                    top = 12.dp,
+                    bottom = 26.5.dp
+                )
+            ) {
                 AppIcon(
                     MyIcons.notes, modifier = Modifier.padding(end = 22.dp)
                         .width(31.73.dp)
@@ -53,20 +60,22 @@ fun ThemeChange() {
                 )
                 CommonText("主题切换", 24.sp)
             }
-            Row(modifier = Modifier.fillMaxWidth().padding(start = 40.dp, bottom = 28.dp)) {
+            Row(
+                modifier = Modifier.fillMaxWidth()
+                    .padding(start = HomePageConfig.box_TBpadding, bottom = HomePageConfig.box_RLpadding)
+            ) {
                 ThemeChangeColor.values().forEach { themeColor ->
                     themeColor.asColorBox()
                 }
             }
             Row(
-                modifier = Modifier.fillMaxWidth().padding(start = 40.dp, bottom = 18.dp),
+                modifier = Modifier.fillMaxWidth().padding(start = HomePageConfig.box_TBpadding, bottom = 18.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 CommonText("主题颜色", 24.sp)
                 Box(
                     modifier = Modifier
-                        .width(40.dp)
-                        .height(40.dp).padding(start = 28.dp)
+                        .size(HomePageConfig.box_TBpadding).padding(start = HomePageConfig.box_RLpadding)
                         .background(color = Color(0xFF7C93C3), shape = RoundedCornerShape(size = 3.dp))
                 )
             }

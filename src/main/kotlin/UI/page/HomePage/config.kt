@@ -33,6 +33,9 @@ fun CommonText(text:String,fontsize:TextUnit){
     )
 }
 
-
+object HomePageConfig{
+    val box_RLpadding = 28.dp
+    val box_TBpadding = 40.dp
+}
 
 
