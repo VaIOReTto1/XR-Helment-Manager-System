@@ -2,9 +2,9 @@ package UI.page.HomePage
 
 import BorderedBox
 import CommonText
+import HomePageConfig
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
@@ -23,7 +23,7 @@ import config.Theme
 @Composable
 fun MessageArea() {
     BorderedBox(
-        modifier = Modifier.padding(top = 41.dp)
+        modifier = Modifier.padding(top = HomePageConfig.box_TBpadding)
             .width(410.dp)
             .height(289.dp)
     ) {

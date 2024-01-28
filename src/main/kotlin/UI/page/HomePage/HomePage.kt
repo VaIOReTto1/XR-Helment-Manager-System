@@ -22,11 +22,14 @@ fun HomePage() {
             ThemeChange() // 主题切换
             Weather() // 天气
         }
-        Row {
+        Row (
+            horizontalArrangement = Arrangement.spacedBy(HomePageConfig.box_RLpadding)
+        ){
             Column {
                 MessageArea() // 消息
                 TicketsArea() // 工单
             }
+            LogArea()
         }
     }
 }
