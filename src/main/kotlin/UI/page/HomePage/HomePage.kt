@@ -1,12 +1,11 @@
 package UI.page.HomePage
 
+import UI.page.HomePage.ThemeChange.ThemeChange
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
-import config.Theme
 
 @Composable
 fun HomePage() {

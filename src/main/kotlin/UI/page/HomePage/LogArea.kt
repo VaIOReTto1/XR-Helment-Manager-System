@@ -1,8 +1,7 @@
 package UI.page.HomePage
 
-import BorderedBox
-import CommonText
-import HomePageConfig
+import AppIcon
+import Theme
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
@@ -13,11 +12,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import config.AppIcon
-import config.MyIcons
-import config.Theme
 
 @Composable
 fun LogArea() {
@@ -35,11 +32,11 @@ fun LogArea() {
                 modifier = Modifier.padding(bottom = 15.dp)
             ) {
                 AppIcon(
-                    MyIcons.news,
+                    MyIcons.log,
                     modifier = Modifier.padding(end = 28.78.dp).size(40.dp),
-                    color = 0xFFA25772
+                    color = Theme.primaryColor.toArgb().toLong()
                 )
-                CommonText("消息", 24.sp)
+                CommonText("日志", 24.sp)
             }
             Column(
                 modifier = Modifier.background(color = Theme.fifthColor).height(240.dp).width(450.dp)

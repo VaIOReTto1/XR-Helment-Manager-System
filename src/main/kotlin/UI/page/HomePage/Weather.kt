@@ -1,15 +1,12 @@
 package UI.page.HomePage
 
-import BorderedBox
-import CommonText
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import config.AppIcon
-import config.MyIcons
+import AppIcon
 
 @Composable
 fun Weather() {

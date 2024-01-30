@@ -1,3 +1,5 @@
+package UI.page.HomePage
+
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
@@ -16,7 +18,7 @@ fun BorderedBox(modifier: Modifier,content: @Composable BoxScope.() -> Unit) {
     Box(
         modifier = modifier
             .border(width = 0.5.dp, color = Color(0xFF000000), shape = RoundedCornerShape(size = 7.dp))
-            .background(color = Color(0xFFEEF5FF), shape = RoundedCornerShape(size = 7.dp)),
+            .background(color = Theme.fourthColor, shape = RoundedCornerShape(size = 7.dp)),
         content=content
     )
 }

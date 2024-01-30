@@ -4,7 +4,6 @@ import MineralStatistics
 import SideBar
 import UI.page.AppBar
 import UI.page.HomePage.HomePage
-import User
 import UsersFlow
 import androidx.compose.animation.*
 import androidx.compose.foundation.layout.*
@@ -18,12 +17,6 @@ enum class AppPage(val title: String) {
     SystemManagement("系统管理"),
     SystemMonitoring("系统监控"),
     SystemTools("系统工具");
-
-    companion object {
-        fun fromTitle(title: String): AppPage? {
-            return values().find { it.title == title }
-        }
-    }
 }
 
 

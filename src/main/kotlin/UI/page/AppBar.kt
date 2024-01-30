@@ -1,7 +1,6 @@
 package UI.page
 
-import config.AppIcon
-import config.MyIcons
+import AppIcon
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -13,7 +12,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import config.Theme
 
 @Composable
 fun AppBar(onMenuClick: () -> Unit,title:String) {

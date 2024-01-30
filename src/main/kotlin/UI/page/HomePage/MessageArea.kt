@@ -1,8 +1,6 @@
 package UI.page.HomePage
 
-import BorderedBox
-import CommonText
-import HomePageConfig
+import AppIcon
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
@@ -14,11 +12,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import config.AppIcon
-import config.MyIcons
-import config.Theme
 
 @Composable
 fun MessageArea() {
@@ -38,7 +34,7 @@ fun MessageArea() {
                 AppIcon(
                     MyIcons.news,
                     modifier = Modifier.padding(end = 28.78.dp).size(40.dp),
-                    color = 0xFFA25772
+                    color = Theme.primaryColor.toArgb().toLong()
                 )
                 CommonText("消息", 24.sp)
             }

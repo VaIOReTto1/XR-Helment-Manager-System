@@ -1,7 +1,6 @@
 package UI.page.HomePage
 
-import BorderedBox
-import CommonText
+import AppIcon
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -10,11 +9,9 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import config.AppIcon
-import config.MyIcons
-import config.Theme
 
 @Composable
 fun TicketsArea() {
@@ -34,7 +31,7 @@ fun TicketsArea() {
                 AppIcon(
                     MyIcons.calendar,
                     modifier = Modifier.padding(end = 28.78.dp).size(45.dp),
-                    color = 0xFFA25772
+                    color = Theme.primaryColor.toArgb().toLong()
                 )
                 CommonText("工单", 24.sp)
             }
