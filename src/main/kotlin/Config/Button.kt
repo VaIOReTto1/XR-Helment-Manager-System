@@ -83,7 +83,7 @@ fun SidebarButton(
 fun DrawerButton(
     text: String,
     iconInfo: IconInfo,
-    isSelected: Boolean,
+    isSelected: Boolean=false,
     expandedContent: @Composable () -> Unit = {},
     onClick: () -> Unit,
 ) {

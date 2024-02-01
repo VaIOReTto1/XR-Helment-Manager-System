@@ -1,5 +1,3 @@
-package widget
-
 import ChartType
 import DescriptionDirection
 import PieData

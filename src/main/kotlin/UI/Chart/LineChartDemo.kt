@@ -1,3 +1,6 @@
+package UI.Chart
+
+import LineData
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Checkbox
 import androidx.compose.material.CheckboxDefaults

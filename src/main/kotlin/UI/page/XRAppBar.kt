@@ -14,7 +14,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun AppBar(onMenuClick: () -> Unit,title:String) {
+fun XRAppBar(onMenuClick: () -> Unit) {
     // 创建观察和响应状态变化的变量
     val isMenuOpen = remember { mutableStateOf(true) }
 
@@ -45,7 +45,7 @@ fun AppBar(onMenuClick: () -> Unit,title:String) {
                 // 根据isMenuOpen的状态决定使用哪个图标
                 AppIcon(if (isMenuOpen.value) MyIcons.menuClose else MyIcons.openMenu, Modifier.size(22.dp), 0xffffffff)
             }
-            Text(title, color = Color.White)
+            Text(Page.selectedPage.title, color = Color.White)
         }
 
         Row(

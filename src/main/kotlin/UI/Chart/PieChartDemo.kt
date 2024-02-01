@@ -1,8 +1,5 @@
-package UI.Chart
 
-import PieData
 import androidx.compose.runtime.Composable
-import widget.PieChart
 
 @Composable
 fun PieChartDemo(){

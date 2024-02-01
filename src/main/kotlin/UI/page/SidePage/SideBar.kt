@@ -1,5 +1,5 @@
-import UI.AppPage
-import UI.page.SidePage.SystemManagementDrawer
+import UI.page.SidePage.LogManageDrawerContent
+import UI.page.SidePage.UserManageDrawerContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
@@ -9,7 +9,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun SideBar(selectedPage: AppPage, onPageSelect: (AppPage) -> Unit) {
+fun SideBar() {
     Row {
         Column(
             modifier = Modifier
@@ -22,34 +22,33 @@ fun SideBar(selectedPage: AppPage, onPageSelect: (AppPage) -> Unit) {
             SidebarButton(
                 text = "首页",
                 iconInfo = MyIcons.home,
-                isSelected = selectedPage.title == "首页"
+                isSelected = Page.selectedPage.title == "首页"
             ) {
-                onPageSelect(AppPage.SystemManagement)
+                Page.UpdateSelectedPage(AppPage.Home)
             }
             // 系统管理键
             DrawerButton(
-                text = "系统管理",
-                iconInfo = MyIcons.setting,
-                isSelected = selectedPage.title == "系统管理",
-                { SystemManagementDrawer(onPageSelect, selectedPage) }
+                text = "用户管理",
+                iconInfo = MyIcons.mulPeople,
+                expandedContent = { UserManageDrawerContent() }
             ) {
-                onPageSelect(AppPage.SystemManagement)
+                Page.UpdateSelectedPage(AppPage.User)
             }
             // 系统监控键
-            DrawerButton(
-                text = "系统监控",
-                iconInfo = MyIcons.systemMonitor,
-                isSelected = selectedPage.title == "系统监控"
+            SidebarButton(
+                text = "紧急呼救",
+                iconInfo = MyIcons.mulUser,
+                isSelected = Page.selectedPage.title == "紧急呼救"
             ) {
-                onPageSelect(AppPage.SystemMonitoring)
+                Page.UpdateSelectedPage(AppPage.EmergencyCallForHelp)
             }
             // 系统工具键
             DrawerButton(
-                text = "系统工具",
-                iconInfo = MyIcons.systemTool,
-                isSelected = selectedPage.title == "系统工具"
+                text = "日志管理",
+                iconInfo = MyIcons.log,
+                expandedContent = { LogManageDrawerContent() }
             ) {
-                onPageSelect(AppPage.SystemTools)
+                Page.UpdateSelectedPage(AppPage.UserLog)
             }
         }
         // 分割线

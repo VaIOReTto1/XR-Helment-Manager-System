@@ -1,5 +1,4 @@
-package UI.page.HomePage
-
+import UI.page.HomePage.*
 import UI.page.HomePage.ThemeChange.ThemeChange
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*

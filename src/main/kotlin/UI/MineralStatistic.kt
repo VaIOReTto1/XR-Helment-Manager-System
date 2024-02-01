@@ -1,4 +1,4 @@
-import UI.Chart.PieChartDemo
+import UI.Chart.LineChartDemo
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState

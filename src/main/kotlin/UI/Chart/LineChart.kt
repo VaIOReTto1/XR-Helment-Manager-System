@@ -1,3 +1,7 @@
+package UI.Chart
+
+import LineData
+import LineModel
 import androidx.compose.animation.core.TweenSpec
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.Canvas
