@@ -83,7 +83,7 @@ fun SidebarButton(
 fun DrawerButton(
     text: String,
     iconInfo: IconInfo,
-    isSelected: Boolean=false,
+    isSelected: Boolean = false,
     expandedContent: @Composable () -> Unit = {},
     onClick: () -> Unit,
 ) {
@@ -91,7 +91,7 @@ fun DrawerButton(
     val (backgroundColor, contentColor) = ButtonStyle(isSelected)
     ButtonBase(text, iconInfo, backgroundColor, contentColor, isSelected, true, isExpanded) {
         isExpanded = !isExpanded
-        onClick()
+        if (isExpanded) onClick()
     }
     // 动画效果
     AnimatedVisibility(visible = isExpanded) {
