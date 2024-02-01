@@ -1,6 +1,5 @@
 package UI.page.HomePage.ThemeChange
 
-import UI.page.HomePage.HomePageConfig
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable

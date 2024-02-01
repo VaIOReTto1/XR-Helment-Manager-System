@@ -1,6 +1,8 @@
 package UI.page.HomePage
 
 import AppIcon
+import BorderedBox
+import CommonText
 import Theme
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border

@@ -1,6 +1,5 @@
 package UI.page.HomePage.ThemeChange
 
-import UI.page.HomePage.HomePageConfig
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding

@@ -1,6 +1,8 @@
 package UI.page.HomePage
 
 import AppIcon
+import BorderedBox
+import CommonText
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState

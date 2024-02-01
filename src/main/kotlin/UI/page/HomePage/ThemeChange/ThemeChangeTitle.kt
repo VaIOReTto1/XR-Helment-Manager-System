@@ -1,8 +1,7 @@
 package UI.page.HomePage.ThemeChange
 
 import AppIcon
-import UI.page.HomePage.CommonText
-import UI.page.HomePage.HomePageConfig
+import CommonText
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier

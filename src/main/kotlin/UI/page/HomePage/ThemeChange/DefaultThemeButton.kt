@@ -1,7 +1,7 @@
 package UI.page.HomePage.ThemeChange
 
-import UI.page.HomePage.CommonText
-import UI.page.HomePage.HomePageConfig
+import BorderedBox
+import CommonText
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
