@@ -2,6 +2,7 @@ package UI.page.HomePage
 
 import BorderedBox
 import CommonText
+import MyInformation
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
@@ -36,11 +37,11 @@ fun PersonMessage() {
             Column(
                 Modifier.fillMaxWidth(),
                 verticalArrangement = Arrangement.spacedBy(28.dp),
-                horizontalAlignment = Alignment.CenterHorizontally
+                horizontalAlignment = Alignment.Start
             ) {
-                ProfileDetail("姓名", "xxx")
-                ProfileDetail("所属公司", "xxxx")
-                ProfileDetail("职务", "管理员")
+                ProfileDetail("姓名", MyInformation.name)
+                ProfileDetail("所属公司", MyInformation.department)
+                ProfileDetail("职务", MyInformation.job)
             }
         }
     }
