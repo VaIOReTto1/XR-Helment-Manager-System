@@ -1,3 +1,4 @@
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -15,10 +16,11 @@ import androidx.compose.ui.unit.sp
 @Composable
 fun MyPage() {
     Row(
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier.background(Theme.thirdColor).fillMaxSize()
             .padding(top = HomePageConfig.box_TBpadding, start = HomePageConfig.box_TBpadding),
         horizontalArrangement = Arrangement.spacedBy(40.dp)
     ) {
         PersonalInformation()
+        BasicInformation()
     }
 }

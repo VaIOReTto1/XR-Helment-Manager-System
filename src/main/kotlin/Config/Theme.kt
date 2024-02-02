@@ -12,6 +12,7 @@ object Theme {
     var fourthColor by mutableStateOf(Color(0xFFEEF5FF)) // 卡片背景
     var fifthColor by mutableStateOf(Color(0xFFFFFFFB)) // 文字底色
     val divideColor = Color(0xFFB8B8B8) // 分割线颜色
+    val redColor = Color(0xffFF4D4E) // 红色
 
     private var selectedTheme by mutableStateOf(ThemeChangeColor.MistyBlue) // 选中的主题
     var isDefaultThemeActivated by mutableStateOf(false) // 是否激活默认主题
