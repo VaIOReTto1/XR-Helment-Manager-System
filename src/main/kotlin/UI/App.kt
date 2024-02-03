@@ -2,13 +2,13 @@ package UI
 
 import AppPage
 import HomePage
+import Message
 import MyPage
 import Page
 import SideBar
 import UI.page.EmergencyCallForHelp
 import UI.page.LogManage.DeviceSecurity
 import UI.page.LogManage.UserLog
-import UI.page.UserManage.Message
 import UI.page.UserManage.Tickets
 import UI.page.XRAppBar
 import UsersFlow

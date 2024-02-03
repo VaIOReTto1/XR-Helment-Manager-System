@@ -1,7 +1,3 @@
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
-
 // 定义用户状态
 enum class UserStatus {
     Working, NotWorking, InDanger

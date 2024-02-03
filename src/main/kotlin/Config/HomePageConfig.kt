@@ -22,13 +22,13 @@ fun BorderedBox(modifier: Modifier,content: @Composable BoxScope.() -> Unit) {
 }
 
 @Composable
-fun CommonText(text:String,fontsize:TextUnit){
+fun CommonText(text:String,fontsize:TextUnit,color: Color=Color.Black){
     Text(
         text = text,
         style = TextStyle(
             fontSize = fontsize,
             fontWeight = FontWeight(400),
-            color = Color(0xFF000000)
+            color = color
         )
     )
 }

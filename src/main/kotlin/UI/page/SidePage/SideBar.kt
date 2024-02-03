@@ -13,7 +13,7 @@ fun SideBar() {
     Row {
         Column(
             modifier = Modifier
-                .background(ColorTheme.DefaultBgColor)
+                .background(Theme.fifthColor)
                 .width(Dimensions.SidebarWidth)
                 .fillMaxHeight(),
             verticalArrangement = Arrangement.spacedBy(4.dp)
@@ -26,14 +26,6 @@ fun SideBar() {
             ) {
                 Page.UpdateSelectedPage(AppPage.Home)
             }
-            // 系统管理键
-            DrawerButton(
-                text = "用户管理",
-                iconInfo = MyIcons.mulPeople,
-                expandedContent = { UserManageDrawerContent() }
-            ) {
-                Page.UpdateSelectedPage(AppPage.User)
-            }
             // 系统监控键
             SidebarButton(
                 text = "紧急呼救",
@@ -41,6 +33,14 @@ fun SideBar() {
                 isSelected = Page.selectedPage.title == "紧急呼救"
             ) {
                 Page.UpdateSelectedPage(AppPage.EmergencyCallForHelp)
+            }
+            // 系统管理键
+            DrawerButton(
+                text = "用户管理",
+                iconInfo = MyIcons.mulPeople,
+                expandedContent = { UserManageDrawerContent() }
+            ) {
+                Page.UpdateSelectedPage(AppPage.User)
             }
             // 系统工具键
             DrawerButton(

@@ -2,7 +2,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.*
@@ -12,7 +11,6 @@ import androidx.compose.ui.unit.dp
 // 定义用户列表
 @Composable
 fun UsersFlow() {
-    val isSelected = remember { mutableStateOf("") }
     val scrollState = rememberScrollState()
     val users = listOf(
         User("张伟", "13800138000", "市场部", "管理员", "男", "100001", "", UserStatus.Working),
@@ -36,7 +34,10 @@ fun UsersFlow() {
         User("黄丽", "13800138018", "运营部", "管理员", "女", "100019", "", UserStatus.Working),
         User("韩晨", "13800138019", "市场推广部", "管理员", "男", "100020", "", UserStatus.NotWorking)
     )
-    Column(modifier = Modifier.fillMaxSize().background(Theme.thirdColor).verticalScroll(scrollState)) {
+    Column(
+        modifier = Modifier.fillMaxSize().background(Theme.thirdColor).verticalScroll(scrollState)
+            .padding(top = 6.dp)
+    ) {
         UserDrawerButton("管理员") {
             Column(
                 modifier = Modifier.background(Theme.thirdColor).padding(bottom = 6.dp)
