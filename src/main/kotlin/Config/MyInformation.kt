@@ -2,6 +2,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 
+
 object MyInformation {
     var name by mutableStateOf("xxx")
     var phone by mutableStateOf("12312341234")
