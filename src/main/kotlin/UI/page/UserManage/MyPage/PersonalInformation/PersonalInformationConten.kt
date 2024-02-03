@@ -13,10 +13,10 @@ fun PersonalInformationContent() {
     // 使用数据类创建个人信息的列表
     val list = listOf(
         PersonalInfoItem(MyIcons.user, "用户名称", MyInformation.name),
+        PersonalInfoItem(MyIcons.id, "童虎工号", MyInformation.id),
         PersonalInfoItem(MyIcons.phone, "手机号码", MyInformation.phone),
         PersonalInfoItem(MyIcons.department, "所属部门", MyInformation.department),
         PersonalInfoItem(MyIcons.mulPeople, "所属角色", MyInformation.job),
-        PersonalInfoItem(MyIcons.calendar, "创建日期", MyInformation.creat_time)
     )
 
     Column(

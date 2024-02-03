@@ -39,6 +39,7 @@ object MyIcons {
     val setting = IconInfo("icon/shezhi.png", "设置")
     val notification = IconInfo("icon/tongzhi.png", "设置")
     val could_day =IconInfo("icon/ic_partly_cloud_day.png","阴天")
+    val id = IconInfo("icon/id-card-solid.png","身份证")
 }
 
 // 定义图标引用的对象
