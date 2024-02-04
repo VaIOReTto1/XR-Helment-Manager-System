@@ -1,18 +1,20 @@
 package UI
 
 import AppPage
+import DeviceSecurity
 import HomePage
 import Logs
 import Messages
 import MyPage
 import Page
 import SideBar
+import Theme
 import Tickets
 import UI.page.EmergencyCallForHelp
-import UI.page.LogManage.DeviceSecurity
 import UI.page.XRAppBar
 import UsersFlow
 import androidx.compose.animation.*
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
@@ -22,7 +24,7 @@ fun App() {
     val (isDrawerOpen, setDrawerOpen) = remember { mutableStateOf(true) }
 
     Column(
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier.fillMaxSize().background(Theme.thirdColor)
     ) {
         // 顶部栏
         XRAppBar(onMenuClick = { setDrawerOpen(!isDrawerOpen) })

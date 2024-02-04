@@ -94,7 +94,10 @@ fun DrawerButton(
         if (isExpanded) onClick()
     }
     // 动画效果
-    AnimatedVisibility(visible = isExpanded) {
+    AnimatedVisibility(
+        visible = isExpanded,
+        enter = slideInVertically(initialOffsetY = { -it }) + fadeIn(), // 从上方滑入
+    ) {
         expandedContent()
     }
 }

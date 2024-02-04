@@ -1,4 +1,4 @@
-import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.*
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -40,7 +40,10 @@ fun UserDrawerButton(
         )
     }
     // 动画效果
-    AnimatedVisibility(visible = isExpanded) {
+    AnimatedVisibility(
+        visible = isExpanded,
+        enter = slideInVertically(initialOffsetY = { -it }) + fadeIn(), // 从上方滑入
+    ) {
         expandedContent()
     }
 }
