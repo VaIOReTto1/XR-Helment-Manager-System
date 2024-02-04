@@ -56,7 +56,7 @@ fun TicketsList() {
         modifier = Modifier
             .width(328.dp)
             .height(60.dp)
-            .background(color = Theme.fifthColor).padding(start = 6.dp, end = 16.dp),
+            .background(color = Theme.fifthColor).padding(start = HomePageConfig.box_ContentPadding, end = 16.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
         CommonText("工单", 28.sp)

@@ -68,7 +68,7 @@ fun MessageList() {
                 .height(45.dp).border(width = 0.5.dp, color = Color(0xFF000000))
         ) { }
         Column(
-            modifier = Modifier.padding(top = 6.dp, end = 16.dp),
+            modifier = Modifier.padding(top = HomePageConfig.box_ContentPadding, end = 16.dp),
             horizontalAlignment = Alignment.Start,
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {

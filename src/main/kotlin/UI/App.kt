@@ -2,6 +2,7 @@ package UI
 
 import AppPage
 import HomePage
+import Logs
 import Messages
 import MyPage
 import Page
@@ -9,7 +10,6 @@ import SideBar
 import Tickets
 import UI.page.EmergencyCallForHelp
 import UI.page.LogManage.DeviceSecurity
-import UI.page.LogManage.UserLog
 import UI.page.XRAppBar
 import UsersFlow
 import androidx.compose.animation.*
@@ -44,7 +44,7 @@ fun App() {
                 AppPage.Tickets -> Tickets() //工单详情
                 AppPage.User -> UsersFlow() //用户管理
                 AppPage.DeviceSecurity -> DeviceSecurity() //设备管理
-                AppPage.UserLog -> UserLog() //用户日志
+                AppPage.UserLog -> Logs() //用户日志
                 AppPage.EmergencyCallForHelp -> EmergencyCallForHelp() //紧急呼救
             }
         }

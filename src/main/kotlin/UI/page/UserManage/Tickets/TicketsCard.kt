@@ -14,7 +14,7 @@ import androidx.compose.ui.unit.sp
 fun TicketsCard(ticket: Ticket) {
     Card(
         modifier = Modifier
-            .padding(start = HomePageConfig.box_RLpadding, end = HomePageConfig.box_RLpadding, top = 6.dp)
+            .padding(start = HomePageConfig.box_RLpadding, end = HomePageConfig.box_RLpadding, top = HomePageConfig.box_ContentPadding)
             .fillMaxWidth(),
         elevation = 4.dp,
         shape = RoundedCornerShape(7.dp)
@@ -22,10 +22,15 @@ fun TicketsCard(ticket: Ticket) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.background(Theme.fourthColor)
-                .padding(HomePageConfig.box_RLpadding).fillMaxWidth(),
+                .padding(
+                    start = HomePageConfig.box_RLpadding,
+                    end = HomePageConfig.box_RLpadding,
+                    top = HomePageConfig.box_ContentPadding,
+                    bottom = HomePageConfig.box_ContentPadding
+                ).fillMaxWidth(),
         ) {
             Column(
-                verticalArrangement = Arrangement.spacedBy(HomePageConfig.box_RLpadding)
+                verticalArrangement = Arrangement.spacedBy(HomePageConfig.box_ContentPadding)
             ) {
                 CommonText(ticket.title, 28.sp)
                 Row(
@@ -37,7 +42,7 @@ fun TicketsCard(ticket: Ticket) {
             }
             Spacer(modifier = Modifier.weight(1f))
             Column(
-                verticalArrangement = Arrangement.spacedBy(HomePageConfig.box_RLpadding),
+                verticalArrangement = Arrangement.spacedBy(HomePageConfig.box_ContentPadding),
                 horizontalAlignment = Alignment.End
             ) {
                 Row(

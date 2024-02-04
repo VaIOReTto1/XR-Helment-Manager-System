@@ -36,7 +36,7 @@ fun Messages() {
         Message("Tina", "https://example.com/image20.jpg", "2024-02-04 12:45")
     )
     LazyVerticalGrid(
-        modifier = Modifier.background(Theme.thirdColor).fillMaxSize().padding(6.dp),
+        modifier = Modifier.background(Theme.thirdColor).fillMaxSize().padding(HomePageConfig.box_ContentPadding),
         columns = GridCells.Fixed(4),
         verticalArrangement = Arrangement.spacedBy(HomePageConfig.box_RLpadding),
         horizontalArrangement = Arrangement.spacedBy(HomePageConfig.box_RLpadding)

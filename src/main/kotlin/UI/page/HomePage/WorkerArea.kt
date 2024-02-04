@@ -61,7 +61,7 @@ fun WorkerList() {
         modifier = Modifier
             .width(458.dp)
             .height(112.dp)
-            .background(color = Theme.fifthColor).padding(start = 6.dp, end = HomePageConfig.box_TBpadding),
+            .background(color = Theme.fifthColor).padding(start = HomePageConfig.box_ContentPadding, end = HomePageConfig.box_TBpadding),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Column(

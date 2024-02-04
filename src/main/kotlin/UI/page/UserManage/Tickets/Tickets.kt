@@ -34,7 +34,7 @@ fun Tickets() {
         Ticket("紧急指挥", "托塔天王", "100020", TicketStatus.Completing, "2024.2.22 22:10")
     )
     val scrollState = rememberScrollState()
-    Column(modifier = Modifier.background(Theme.thirdColor).fillMaxSize().verticalScroll(scrollState).padding(bottom = 6.dp)) {
+    Column(modifier = Modifier.background(Theme.thirdColor).fillMaxSize().verticalScroll(scrollState).padding(bottom = HomePageConfig.box_ContentPadding)) {
         tickets.forEach {
             TicketsCard(it)
         }

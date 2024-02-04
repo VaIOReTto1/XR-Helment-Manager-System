@@ -36,11 +36,11 @@ fun UsersFlow() {
     )
     Column(
         modifier = Modifier.fillMaxSize().background(Theme.thirdColor).verticalScroll(scrollState)
-            .padding(top = 6.dp)
+            .padding(top = HomePageConfig.box_ContentPadding)
     ) {
         UserDrawerButton("管理员") {
             Column(
-                modifier = Modifier.background(Theme.thirdColor).padding(bottom = 6.dp)
+                modifier = Modifier.background(Theme.thirdColor).padding(bottom = HomePageConfig.box_ContentPadding)
             ) {
                 users.forEach {
                     UserCard(user = it)
@@ -49,7 +49,7 @@ fun UsersFlow() {
         }
         UserDrawerButton("专家") {
             Column(
-                modifier = Modifier.background(Theme.thirdColor).padding(bottom = 6.dp)
+                modifier = Modifier.background(Theme.thirdColor).padding(bottom = HomePageConfig.box_ContentPadding)
             ) {
                 users.forEach {
                     UserCard(user = it)
@@ -58,7 +58,7 @@ fun UsersFlow() {
         }
         UserDrawerButton("工人") {
             Column(
-                modifier = Modifier.background(Theme.thirdColor).padding(bottom = 6.dp)
+                modifier = Modifier.background(Theme.thirdColor).padding(bottom = HomePageConfig.box_ContentPadding)
             ) {
                 users.forEach {
                     UserCard(user = it)

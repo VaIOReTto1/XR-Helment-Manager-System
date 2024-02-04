@@ -14,14 +14,14 @@ import androidx.compose.ui.unit.sp
 fun MessageCard(message: Message) {
     Card(
         modifier = Modifier.background(Theme.fourthColor, shape = RoundedCornerShape(7.dp))
-            .width(290.dp).height(220.dp),
+            .width(290.dp),
         elevation = 4.dp,
         shape = RoundedCornerShape(7.dp)
     ) {
         Column(
-            modifier = Modifier.background(Theme.fourthColor).padding(start = HomePageConfig.box_RLpadding, top = 10.dp).fillMaxHeight()
+            modifier = Modifier.background(Theme.fourthColor).padding(start = HomePageConfig.box_RLpadding, top = 10.dp)
                 ,
-            verticalArrangement = Arrangement.spacedBy(HomePageConfig.box_RLpadding)
+            verticalArrangement = Arrangement.spacedBy(HomePageConfig.box_ContentPadding)
         ) {
             CommonText(message.name, 28.sp)
             Box(
