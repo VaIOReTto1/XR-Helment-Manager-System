@@ -1,6 +1,7 @@
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -17,7 +18,8 @@ fun UserCard(user: User) {
         modifier = Modifier
             .padding(start = HomePageConfig.box_RLpadding, end = HomePageConfig.box_RLpadding, top = 6.dp)
             .fillMaxWidth(),
-        elevation = 4.dp
+        elevation = 4.dp,
+        shape = RoundedCornerShape(7.dp)
     ) {
         Column(
             modifier = Modifier.background(Theme.fourthColor)
@@ -66,7 +68,7 @@ fun UserStatusTag(status: UserStatus) {
     Box(
         contentAlignment = Alignment.Center,
         modifier = Modifier
-            .background(color)
+            .background(color, shape = RoundedCornerShape(7.dp))
             .padding(horizontal = 8.dp, vertical = 4.dp)
     ) {
         Text(text = text, color = Color.White)
