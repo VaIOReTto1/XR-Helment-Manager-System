@@ -2,7 +2,7 @@ package UI
 
 import AppPage
 import HomePage
-import Message
+import Messages
 import MyPage
 import Page
 import SideBar
@@ -39,7 +39,7 @@ fun App() {
             // 根据当前选中的页面显示不同的内容
             when (Page.selectedPage) {
                 AppPage.Home -> HomePage() //首页
-                AppPage.Message -> Message() //消息查看
+                AppPage.Message -> Messages() //消息查看
                 AppPage.MyPage -> MyPage() //我的页面
                 AppPage.Tickets -> Tickets() //工单详情
                 AppPage.User -> UsersFlow() //用户管理
