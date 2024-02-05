@@ -16,8 +16,8 @@
     <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
-    <connection id="d99b5d83-f933-4400-a05c-abcfd580c091">
-      <console name="Connection 1" type="STANDARD" schema="" session="Main" />
+    <connection id="ad4a252f-ff8d-461a-b49a-77cde8af4d28">
+      <console name="Connection" type="STANDARD" schema="" session="Main" />
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
@@ -27,7 +27,14 @@
     <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
-    <connection id="d99b5d83-f933-4400-a05c-abcfd580c091" />
+    <connection id="ad4a252f-ff8d-461a-b49a-77cde8af4d28" />
+  </component>
+  <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="ad4a252f-ff8d-461a-b49a-77cde8af4d28" dataset="main.tickets" active-filter-id="f55f0b3a-5679-4b78-9ebe-764068c7e2ee">
+      <filter id="f55f0b3a-5679-4b78-9ebe-764068c7e2ee" name="1" temporary="false" custom-name="false" type="basic" join-type="AND">
+        <condition column="date" operator="!=" value="1" active="true" />
+      </filter>
+    </filter-actions>
   </component>
   <component name="DBNavigator.Project.ExecutionManager">
     <retain-sticky-names value="false" />
@@ -46,9 +53,9 @@
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection id="d99b5d83-f933-4400-a05c-abcfd580c091" active="true" signed="true">
+      <connection id="ad4a252f-ff8d-461a-b49a-77cde8af4d28" active="true" signed="true">
         <database>
-          <name value="Connection 1" />
+          <name value="Connection" />
           <description value="" />
           <database-type value="SQLITE" />
           <config-type value="BASIC" />
@@ -63,7 +70,7 @@
           <tns-folder value="" />
           <tns-profile value="" />
           <files>
-            <file path="sqlite.db" schema="main" />
+            <file path="D:\Program\XR-Helment-Manager-System\db.db" schema="main" />
           </files>
           <type value="NONE" />
           <user value="" />
