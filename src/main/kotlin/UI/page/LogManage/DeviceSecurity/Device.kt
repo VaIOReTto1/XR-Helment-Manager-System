@@ -1,16 +1,16 @@
 package UI.page.LogManage.DeviceSecurity
 
 data class Device(
-    val id:String,
-    val last_uesd_time:String,
-    val Integrity:String,
-    val image:String,
-    val status: DeviceStatus
+    val id:String, //设备id
+    val last_uesd_time:String, //设备最近使用时间
+    val integrity:String, //设备完整性
+    val image:String, //设备图片
+    val status: DeviceStatus //设备状态
 )
 
 enum class DeviceStatus {
-    Normal,
-    Damaged,
-    lost,
-    repair
+    Normal, //正常
+    Damaged, //损坏
+    lost, //丢失
+    repair //维修
 }
