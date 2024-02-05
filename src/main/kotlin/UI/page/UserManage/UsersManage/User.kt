@@ -5,12 +5,12 @@ enum class UserStatus {
 
 // 定义用户信息
 data class User(
-    val name: String,
-    val phone: String,
-    val department: String,
-    val job: String,
-    val gender: String,
-    val id: String,
-    val photo: String,
-    val status: UserStatus,
+    val name: String, //姓名
+    val phone: String, //电话
+    val department: String, //部门
+    val job: String, //职务
+    val gender: String, //性别
+    val id: String, //工号
+    val image: String, //头像
+    val status: UserStatus, //状态
 )
