@@ -6,37 +6,62 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
+import java.sql.DriverManager
 
+/**
+ * @param
+ * @description: 日志管理
+ */
 @Composable
-fun Logs(){
-    val logs = listOf(
-        Log("4", "2", "1", "1", "0", "1", "2024-02-04 08:00"),
-        Log("5", "3", "2", "0", "1", "2", "2024-02-04 09:00"),
-        Log("6", "4", "0", "1", "0", "3", "2024-02-04 10:00"),
-        Log("3", "2", "1", "0", "0", "1", "2024-02-04 11:00"),
-        Log("4", "3", "0", "1", "1", "2", "2024-02-04 12:00"),
-        Log("5", "2", "1", "0", "0", "2", "2024-02-04 13:00"),
-        Log("6", "5", "0", "1", "0", "3", "2024-02-04 14:00"),
-        Log("4", "2", "2", "1", "1", "1", "2024-02-04 15:00"),
-        Log("3", "1", "1", "0", "0", "1", "2024-02-04 16:00"),
-        Log("4", "3", "0", "1", "1", "2", "2024-02-04 17:00"),
-        Log("5", "4", "1", "0", "0", "3", "2024-02-04 18:00"),
-        Log("6", "2", "2", "1", "0", "2", "2024-02-04 19:00"),
-        Log("4", "3", "1", "0", "1", "1", "2024-02-04 20:00"),
-        Log("3", "2", "0", "1", "0", "2", "2024-02-04 21:00"),
-        Log("4", "1", "1", "0", "0", "3", "2024-02-04 22:00"),
-        Log("5", "3", "0", "1", "1", "1", "2024-02-04 23:00"),
-        Log("6", "4", "1", "0", "0", "2", "2024-02-05 08:00"),
-        Log("4", "2", "0", "1", "1", "3", "2024-02-05 09:00"),
-        Log("3", "3", "1", "0", "0", "1", "2024-02-05 10:00"),
-        Log("4", "2", "2", "1", "0", "2", "2024-02-05 11:00")
-    )
+fun Logs() {
     val scrollState = rememberScrollState()
-    Column(modifier = Modifier.background(Theme.thirdColor).fillMaxSize().verticalScroll(scrollState).padding(bottom = HomePageConfig.box_ContentPadding)){
-        logs.forEach {
+    val logs = remember { mutableStateOf(listOf<Log>()) }
+
+    LaunchedEffect(Unit) {
+        logs.value = getLogsFromDatabase()
+    }
+
+    Column(
+        modifier = Modifier.background(Theme.thirdColor).fillMaxSize().verticalScroll(scrollState)
+            .padding(bottom = HomePageConfig.box_ContentPadding)
+    ) {
+        logs.value.forEach {
             LogCard(it)
         }
     }
+}
+
+/**
+ * @param
+ * @description: 获取日志列表
+ * @return 日志列表
+ */
+fun getLogsFromDatabase(): List<Log> {
+    val logs = mutableListOf<Log>()
+    val url = "jdbc:sqlite:db.db"
+
+    DriverManager.getConnection(url).use { conn ->
+        val stmt = conn.createStatement()
+        val rs = stmt.executeQuery("SELECT * FROM logs ORDER BY time DESC") // 假设你想要按时间降序排序
+
+        while (rs.next()) {
+            logs.add(
+                Log(
+                    should_arrive = rs.getString("should_arrive"),
+                    arrived = rs.getString("arrived"),
+                    absent = rs.getString("absent"),
+                    ask_for_leave = rs.getString("ask_for_leave"),
+                    emergency = rs.getString("emergency"),
+                    completed_ticket = rs.getString("completed_ticket"),
+                    time = rs.getString("time")
+                )
+            )
+        }
+    }
+
+    return logs
 }
