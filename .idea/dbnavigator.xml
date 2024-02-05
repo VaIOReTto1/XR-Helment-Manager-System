@@ -24,12 +24,24 @@
     <last-used-providers />
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files />
+    <open-files>
+      <object connection-id="ad4a252f-ff8d-461a-b49a-77cde8af4d28" object-ref="schemas/main/tables/messages" />
+    </open-files>
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="ad4a252f-ff8d-461a-b49a-77cde8af4d28" />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="ad4a252f-ff8d-461a-b49a-77cde8af4d28" dataset="main.messages" active-filter-id="52d9e00d-e7ee-4aae-892f-fdb15a5b8ef8">
+      <filter id="52d9e00d-e7ee-4aae-892f-fdb15a5b8ef8" name="1" temporary="false" custom-name="false" type="basic" join-type="AND">
+        <condition column="image" operator="!=" value="1" active="true" />
+      </filter>
+    </filter-actions>
+    <filter-actions connection-id="ad4a252f-ff8d-461a-b49a-77cde8af4d28" dataset="main.devices" active-filter-id="59c76630-56b2-4cf8-b39b-41126190a91c">
+      <filter id="59c76630-56b2-4cf8-b39b-41126190a91c" name="1" temporary="false" custom-name="false" type="basic" join-type="AND">
+        <condition column="id" operator="!=" value="1" active="true" />
+      </filter>
+    </filter-actions>
     <filter-actions connection-id="ad4a252f-ff8d-461a-b49a-77cde8af4d28" dataset="main.tickets" active-filter-id="f55f0b3a-5679-4b78-9ebe-764068c7e2ee">
       <filter id="f55f0b3a-5679-4b78-9ebe-764068c7e2ee" name="1" temporary="false" custom-name="false" type="basic" join-type="AND">
         <condition column="date" operator="!=" value="1" active="true" />
