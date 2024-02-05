@@ -57,8 +57,8 @@ fun DeviceCard(device: Device) {
 fun DeviceStatusTag(status: DeviceStatus) {
     val (text, color) = when (status) {
         DeviceStatus.Normal -> "无异常" to Theme.thirdColor
-        DeviceStatus.repair -> "维修中" to Color(0xff52D3D8)
-        DeviceStatus.lost -> "已丢失" to Color.Gray
+        DeviceStatus.Repair -> "维修中" to Color(0xff52D3D8)
+        DeviceStatus.Lost -> "已丢失" to Color.Gray
         DeviceStatus.Damaged -> "已损坏" to Theme.redColor
     }
     Box(
